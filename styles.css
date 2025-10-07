@@ -105,14 +105,24 @@ body {
 .grid { display: grid; gap: 20px; }
 .grid.two { grid-template-columns: 1.2fr 1fr; }
 .grid.three { grid-template-columns: repeat(3, 1fr); }
+.grid > * { min-width: 0; }
 
 /* Contact */
 .contacts p { margin: 6px 0; }
 .social { margin-top: 12px; }
 .social-label { display: inline-block; margin-right: 8px; color: var(--muted); }
 .social ul { display: inline-flex; gap: 12px; list-style: none; margin: 0; padding: 0; }
-.social a { color: #0f1d18; text-decoration: none; border-bottom: 1px dashed rgba(16,24,20,0.25); display: inline-flex; align-items: center; gap: 8px; }
-.social a:hover { color: var(--accent-2); border-bottom-color: transparent; }
+.social a { color: #0f1d18; text-decoration: none; display: inline-flex; align-items: center; }
+.social a:hover { opacity: 0.9; }
+.icon-only svg { display: block; }
+.social-label { margin-right: 8px; }
+
+/* Prevent overflow in Contact and Form sections */
+.contact .container, .contact .card, .form, .contacts, .social {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+}
 
 .form label { display: grid; gap: 6px; margin: 10px 0; }
 .form input, .form textarea { background: #ffffff; color: #0f1d18; border: 1px solid rgba(16,24,20,0.12); border-radius: 10px; padding: 10px 12px; }
@@ -135,5 +145,9 @@ body {
   .site-nav ul { flex-direction: column; align-items: flex-start; }
   .nav-toggle { display: inline-block; }
   .grid.three { grid-template-columns: 1fr; }
+  /* Make form controls and buttons fit small screens nicely */
+  .form .btn { width: 100%; }
+  .cta-actions .btn { width: 100%; }
+  .section h2 { font-size: 1.5rem; }
 }
 
