@@ -40,22 +40,22 @@ if (form) {
     const phone = String(formData.get('phone') || '').trim();
     const message = String(formData.get('message') || '').trim();
 
-    const summary = `Callback request from ${name || 'Unknown'}%0A` +
-      `Phone: ${encodeURIComponent(phone)}%0A` +
+    const summary = `Hello, I am ${name || 'Unknown'}%0A` +
+    //   `Phone: ${encodeURIComponent(phone)}%0A` +
       `Concern: ${encodeURIComponent(message)}`;
 
-    // Email
-    const mailto = `mailto:divyadonpati@gmail.com?subject=${encodeURIComponent('Callback Request - Sriji Seva Sansthan')}&body=${summary}`;
-    window.open(mailto, '_blank');
+    // // Email
+    // const mailto = `mailto:divyadonpati@gmail.com?subject=${encodeURIComponent('Callback Request - Sriji Seva Sansthan')}&body=${summary}`;
+    // window.open(mailto, '_blank');
 
     // WhatsApp (international format without +)
     const waNumber = '918639560047';
     const wa = `https://wa.me/${waNumber}?text=${summary}`;
     window.open(wa, '_blank');
 
-    // SMS intent (best-effort; support varies by platform)
-    const sms = `sms:+918639560047?&body=${summary}`;
-    window.open(sms, '_blank');
+    // // SMS intent (best-effort; support varies by platform)
+    // const sms = `sms:+918639560047?&body=${summary}`;
+    // window.open(sms, '_blank');
 
     // Google Sheets via Apps Script (optional if meta configured)
     const endpoint = document.querySelector('meta[name="sheet-endpoint"]')?.getAttribute('content')?.trim();
